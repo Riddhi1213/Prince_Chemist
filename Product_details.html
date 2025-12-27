@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Prince Chemist</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <script type="module" async src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fprinceche1812back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.12"></script>
+  <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.2"></script>
+  </head>
+<body class="bg-background min-h-screen">
+    <!-- Header -->
+    <header class="bg-surface shadow-sm border-b border-border-light sticky top-0 z-sticky">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <svg class="h-10 w-10 text-primary" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="40" height="40" rx="8" fill="currentColor"/>
+                            <path d="M12 14h16v2H12v-2zm0 4h16v2H12v-2zm0 4h12v2H12v-2z" fill="white"/>
+                            <circle cx="30" cy="12" r="4" fill="#52C4A0"/>
+                            <path d="M28 12l1.5 1.5L32 11" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-xl font-heading font-semibold text-text-primary">Prince Chemist</h1>
+                        <p class="text-xs text-text-secondary">Your Trusted FMCG Store</p>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="Pages/product_categories.html" class="text-text-secondary hover:text-primary transition-colors duration-250">Categories</a>
+                    <a href="Pages/brand_showcase.html" class="text-text-secondary hover:text-primary transition-colors duration-250">Brands</a>
+                    <a href="Pages/search_results.html" class="text-text-secondary hover:text-primary transition-colors duration-250">Search</a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <button class="md:hidden p-2 rounded-lg hover:bg-background transition-colors duration-250" onclick="toggleMobileMenu()">
+                    <svg class="h-6 w-6 text-text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="md:hidden hidden border-t border-border-light pt-4 pb-3">
+                <div class="space-y-1">
+                    <a href="Pages/product_categories.html" class="block px-3 py-2 text-text-secondary hover:text-primary hover:bg-background rounded-lg transition-colors duration-250">Categories</a>
+                    <a href="Pages/brand_showcase.html" class="block px-3 py-2 text-text-secondary hover:text-primary hover:bg-background rounded-lg transition-colors duration-250">Brands</a>
+                    <a href="Pages/search_results.html" class="block px-3 py-2 text-text-secondary hover:text-primary hover:bg-background rounded-lg transition-colors duration-250">Search</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <div class="bg-surface border-b border-border-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <nav class="flex items-center space-x-2 text-sm">
+                <a href="product_categories.html" class="text-text-secondary hover:text-primary transition-colors duration-250">Categories</a>
+                <svg class="h-4 w-4 text-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+                <a href="category_product_listing.html?category=toothbrush" class="text-text-secondary hover:text-primary transition-colors duration-250">Tooth Brushes</a>
+                <svg class="h-4 w-4 text-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+                <span class="text-text-primary font-medium">Colgate 360° Advanced</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Product Image Gallery -->
+            <div class="stagger-item">
+                <!-- Main Image Display -->
+                <div class="bg-surface rounded-2xl border border-border-light overflow-hidden mb-4 relative group">
+                    <div class="aspect-square relative">
+                        <img 
+                            id="main-product-image"
+                            src="https://images.unsplash.com/photo-1587679111814-5929199adcae" 
+                            alt="Colgate 360° Advanced toothbrush with multi-level bristles and tongue cleaner in blue and white packaging"
+                            class="w-full h-full object-contain p-8"
+                            loading="eager"
+                            onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;"
+                        >
+                        
+                        <!-- Zoom Button -->
+                        <button 
+                            onclick="openImageZoom()"
+                            class="absolute top-4 right-4 bg-surface text-text-primary p-3 rounded-lg shadow-md hover:bg-background transition-all duration-250 opacity-0 group-hover:opacity-100"
+                            aria-label="Zoom image"
+                        >
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/>
+                            </svg>
+                        </button>
+
+                        <!-- Stock Badge -->
+                        <div class="absolute top-4 left-4 bg-success text-success-foreground px-4 py-2 rounded-lg shadow-md flex items-center space-x-2">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="font-medium">In Stock</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Thumbnail Gallery -->
+                <div class="grid grid-cols-4 gap-4">
+                    <button 
+                        onclick="changeMainImage('https://images.pexels.com/photos/3786126/pexels-photo-3786126.jpeg?auto=compress&cs=tinysrgb&w=800', this)"
+                        class="thumbnail-btn active aspect-square bg-surface rounded-lg border-2 border-primary overflow-hidden hover:border-primary-700 transition-all duration-250"
+                    >
+                        <img 
+                            src="https://img.rocket.new/generatedImages/rocket_gen_img_14c66b696-1766853853862.png" 
+                            alt="Front view of Colgate 360° Advanced toothbrush"
+                            class="w-full h-full object-contain p-2"
+                            loading="lazy"
+                            onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;"
+                        >
+                    </button>
+                    <button 
+                        onclick="changeMainImage('https://images.pixabay.com/photo/2017/08/07/19/45/toothbrush-2607327_960_720.jpg', this)"
+                        class="thumbnail-btn aspect-square bg-surface rounded-lg border-2 border-border-light overflow-hidden hover:border-primary transition-all duration-250"
+                    >
+                        <img 
+                            src="https://images.unsplash.com/photo-1487228823455-ee3bd6b8771e" 
+                            alt="Side angle view showing bristle design of Colgate toothbrush"
+                            class="w-full h-full object-contain p-2"
+                            loading="lazy"
+                            onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;"
+                        >
+                    </button>
+                    <button 
+                        onclick="changeMainImage('https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?q=80&w=800&auto=format&fit=crop', this)"
+                        class="thumbnail-btn aspect-square bg-surface rounded-lg border-2 border-border-light overflow-hidden hover:border-primary transition-all duration-250"
+                    >
+                        <img 
+                            src="https://images.unsplash.com/photo-1487228823455-ee3bd6b8771e" 
+                            alt="Close-up detail of multi-level bristles and tongue cleaner"
+                            class="w-full h-full object-contain p-2"
+                            loading="lazy"
+                            onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;"
+                        >
+                    </button>
+                    <button 
+                        onclick="changeMainImage('https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=800', this)"
+                        class="thumbnail-btn aspect-square bg-surface rounded-lg border-2 border-border-light overflow-hidden hover:border-primary transition-all duration-250"
+                    >
+                        <img 
+                            src="https://images.unsplash.com/photo-1602817951342-673fea0978fa" 
+                            alt="Product packaging showing Colgate branding and product features"
+                            class="w-full h-full object-contain p-2"
+                            loading="lazy"
+                            onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;"
+                        >
+                    </button>
+                </div>
+
+                <!-- Trust Signals -->
+                <div class="mt-6 grid grid-cols-3 gap-4">
+                    <div class="bg-surface rounded-lg p-4 border border-border-light text-center">
+                        <svg class="h-8 w-8 text-accent mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                        <p class="text-xs text-text-secondary font-medium">Certified Product</p>
+                    </div>
+                    <div class="bg-surface rounded-lg p-4 border border-border-light text-center">
+                        <svg class="h-8 w-8 text-accent mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        <p class="text-xs text-text-secondary font-medium">Quality Assured</p>
+                    </div>
+                    <div class="bg-surface rounded-lg p-4 border border-border-light text-center">
+                        <svg class="h-8 w-8 text-accent mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <p class="text-xs text-text-secondary font-medium">Fast Delivery</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Information -->
+            <div class="stagger-item">
+                <!-- Product Header -->
+                <div class="mb-6">
+                    <div class="flex items-center space-x-3 mb-3">
+                        <span class="bg-primary-100 text-primary px-3 py-1 rounded-lg text-sm font-medium">
+                            Product Code: TB-COL-360-ADV
+                        </span>
+                        <span class="bg-accent-100 text-accent px-3 py-1 rounded-lg text-sm font-medium">
+                            Tooth Brushes
+                        </span>
+                    </div>
+                    
+                    <h1 class="text-4xl font-heading font-bold text-text-primary mb-4">
+                        Colgate 360° Advanced Toothbrush
+                    </h1>
+                    
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="flex items-center">
+                            <svg class="h-5 w-5 text-warning" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="h-5 w-5 text-warning" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="h-5 w-5 text-warning" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="h-5 w-5 text-warning" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <svg class="h-5 w-5 text-text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <span class="ml-2 text-text-secondary text-sm">(4.0 / 5.0)</span>
+                        </div>
+                        <span class="text-text-secondary">|</span>
+                        <span class="text-text-secondary text-sm">248 Reviews</span>
+                    </div>
+
+                    <p class="text-lg text-text-secondary leading-relaxed">
+                        Advanced oral care solution featuring 360° cleaning action with multi-level bristles, tongue and cheek cleaner, and ergonomic handle design for superior plaque removal and complete mouth freshness.
+                    </p>
+                </div>
+
+                <!-- Brand Information -->
+                <div class="bg-gradient-to-r from-primary-50 to-secondary-50 rounded-xl p-6 mb-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-16 h-16 bg-surface rounded-lg flex items-center justify-center shadow-sm">
+                                <span class="text-primary font-bold text-2xl">C</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-heading font-semibold text-text-primary">Colgate</h3>
+                                <p class="text-sm text-text-secondary">Trusted Oral Care Brand</p>
+                            </div>
+                        </div>
+                        <a href="Pages/brand_showcase.html" class="btn btn-outline text-sm h-10 px-4">
+                            View Brand
+                        </a>
+                    </div>
+                    <div class="flex items-center space-x-6 text-sm">
+                        <div class="flex items-center space-x-2">
+                            <svg class="h-5 w-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                            <span class="text-text-secondary">ISO Certified</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <svg class="h-5 w-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span class="text-text-secondary">Global Leader</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Specifications -->
+                <div class="bg-surface rounded-xl border border-border-light p-6 mb-6">
+                    <h3 class="text-xl font-heading font-semibold text-text-primary mb-4">Product Specifications</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between py-2 border-b border-border-focus">
+                            <span class="text-text-secondary">Bristle Type</span>
+                            <span class="text-text-primary font-medium">Multi-Level Soft</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2 border-b border-border-focus">
+                            <span class="text-text-secondary">Handle Material</span>
+                            <span class="text-text-primary font-medium">Ergonomic Plastic</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2 border-b border-border-focus">
+                            <span class="text-text-secondary">Special Features</span>
+                            <span class="text-text-primary font-medium">Tongue & Cheek Cleaner</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2 border-b border-border-focus">
+                            <span class="text-text-secondary">Recommended Age</span>
+                            <span class="text-text-primary font-medium">Adults & Teens (12+)</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2">
+                            <span class="text-text-secondary">Pack Size</span>
+                            <span class="text-text-primary font-medium">Single Unit</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Features -->
+                <div class="bg-surface rounded-xl border border-border-light p-6 mb-6">
+                    <h3 class="text-xl font-heading font-semibold text-text-primary mb-4">Key Features</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <svg class="h-6 w-6 text-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-text-secondary">360° cleaning action reaches all areas of the mouth including teeth, tongue, cheeks, and gums</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <svg class="h-6 w-6 text-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-text-secondary">Multi-level bristles effectively remove plaque and food particles from hard-to-reach areas</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <svg class="h-6 w-6 text-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-text-secondary">Integrated tongue and cheek cleaner helps remove odor-causing bacteria for fresher breath</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <svg class="h-6 w-6 text-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-text-secondary">Ergonomic handle design provides comfortable grip and better control during brushing</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <svg class="h-6 w-6 text-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-text-secondary">Dentist recommended for comprehensive oral hygiene and cavity prevention</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Usage Instructions -->
+                <div class="bg-surface rounded-xl border border-border-light p-6 mb-6">
+                    <h3 class="text-xl font-heading font-semibold text-text-primary mb-4">Usage Instructions</h3>
+                    <ol class="space-y-3 list-decimal list-inside text-text-secondary">
+                        <li>Apply a pea-sized amount of toothpaste to the bristles</li>
+                        <li>Brush teeth gently in circular motions for 2 minutes</li>
+                        <li>Use the tongue cleaner on the back of the brush head to clean your tongue</li>
+                        <li>Rinse mouth thoroughly with water</li>
+                        <li>Clean the toothbrush and store in an upright position</li>
+                        <li>Replace toothbrush every 3 months or when bristles become frayed</li>
+                    </ol>
+                </div>
+
+                <!-- Safety Information -->
+                <div class="bg-warning-50 border border-warning-200 rounded-xl p-6 mb-6">
+                    <div class="flex items-start space-x-3">
+                        <svg class="h-6 w-6 text-warning flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                        </svg>
+                        <div>
+                            <h4 class="font-heading font-semibold text-text-primary mb-2">Safety Information</h4>
+                            <ul class="space-y-1 text-sm text-text-secondary">
+                                <li>• Not suitable for children under 12 years without adult supervision</li>
+                                <li>• Do not share toothbrush with others to prevent cross-contamination</li>
+                                <li>• Replace immediately if bristles become damaged or worn</li>
+                                <li>• Consult dentist if you experience gum bleeding or sensitivity</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="btn btn-primary flex-1">
+                        <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                        Add to Cart
+                    </button>
+                    <button class="btn btn-outline flex-1">
+                        <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                        </svg>
+                        Add to Wishlist
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Products Section -->
+        <section class="mt-16">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-3xl font-heading font-semibold text-text-primary">Related Products</h2>
+                <a href="category_product_listing.html?category=toothbrush" class="text-primary hover:text-primary-700 font-medium flex items-center transition-colors duration-250">
+                    View All
+                    <svg class="ml-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Related Product 1 -->
+                <div class="card group cursor-pointer" onclick="window.location.href='product_details.html'">
+                    <div class="relative overflow-hidden rounded-lg mb-4">
+                        <img 
+                            src="https://img.rocket.new/generatedImages/rocket_gen_img_17168fe14-1766853855943.png" 
+                            alt="Oral-B Pro-Health toothbrush with advanced cleaning technology"
+                            class="w-full h-48 object-contain group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                            onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;"
+                        >
+                        <div class="absolute top-2 right-2 bg-success text-success-foreground px-2 py-1 rounded-lg text-xs font-medium">
+                            In Stock
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-xs text-text-secondary">TB-OB-PRO-001</p>
+                        <h3 class="text-lg font-heading font-semibold text-text-primary group-hover:text-primary transition-colors duration-250 truncate-2">
+                            Oral-B Pro-Health Toothbrush
+                        </h3>
+                        <p class="text-sm text-text-secondary">Oral-B</p>
+                    </div>
+                </div>
+
+                <!-- Related Product 2 -->
+                <div class="card group cursor-pointer" onclick="window.location.href='product_details.html'">
+                    <div class="relative overflow-hidden rounded-lg mb-4">
+                        <img 
+                            src="https://images.unsplash.com/photo-1612705166160-97d3b2e8e212" 
+                            alt="Sensodyne Sensitive Care toothbrush for gentle cleaning"
+                            class="w-full h-48 object-contain group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                            onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;"
+                        >
+                        <div class="absolute top-2 right-2 bg-success text-success-foreground px-2 py-1 rounded-lg text-xs font-medium">
+                            In Stock
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-xs text-text-secondary">TB-SEN-SOFT-002</p>
+                        <h3 class="text-lg font-heading font-semibold text-text-primary group-hover:text-primary transition-colors duration-250 truncate-2">
+                            Sensodyne Sensitive Care
+                        </h3>
+                        <p class="text-sm text-text-secondary">Sensodyne</p>
+                    </div>
+                </div>
+
+                <!-- Related Product 3 -->
+                <div class="card group cursor-pointer" onclick="window.location.href='product_details.html'">
+                    <div class="relative overflow-hidden rounded-lg mb-4">
+                        <img 
+                            src="https://img.rocket.new/generatedImages/rocket_gen_img_1d4f38e96-1766853855419.png" 
+                            alt="Colgate Slim Soft toothbrush with ultra-fine bristles"
+                            class="w-full h-48 object-contain group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                            onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;"
+                        >
+                        <div class="absolute top-2 right-2 bg-success text-success-foreground px-2 py-1 rounded-lg text-xs font-medium">
+                            In Stock
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-xs text-text-secondary">TB-COL-SLIM-003</p>
+                        <h3 class="text-lg font-heading font-semibold text-text-primary group-hover:text-primary transition-colors duration-250 truncate-2">
+                            Colgate Slim Soft
+                        </h3>
+                        <p class="text-sm text-text-secondary">Colgate</p>
+                    </div>
+                </div>
+
+                <!-- Related Product 4 -->
+                <div class="card group cursor-pointer" onclick="window.location.href='product_details.html'">
+                    <div class="relative overflow-hidden rounded-lg mb-4">
+                        <img 
+                            src="https://img.rocket.new/generatedImages/rocket_gen_img_1d673a465-1766853857535.png" 
+                            alt="Pepsodent Germ Fighter toothbrush with antibacterial bristles"
+                            class="w-full h-48 object-contain group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                            onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;"
+                        >
+                        <div class="absolute top-2 right-2 bg-success text-success-foreground px-2 py-1 rounded-lg text-xs font-medium">
+                            In Stock
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-xs text-text-secondary">TB-PEP-GERM-004</p>
+                        <h3 class="text-lg font-heading font-semibold text-text-primary group-hover:text-primary transition-colors duration-250 truncate-2">
+                            Pepsodent Germ Fighter
+                        </h3>
+                        <p class="text-sm text-text-secondary">Pepsodent</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface border-t border-border-light mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-8 w-8 text-primary" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="40" height="40" rx="8" fill="currentColor"/>
+                            <path d="M12 14h16v2H12v-2zm0 4h16v2H12v-2zm0 4h12v2H12v-2z" fill="white"/>
+                            <circle cx="30" cy="12" r="4" fill="#52C4A0"/>
+                            <path d="M28 12l1.5 1.5L32 11" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="ml-2 text-xl font-heading font-semibold text-text-primary">Prince Chemist</span>
+                    </div>
+                    <p class="text-text-secondary mb-4 max-w-md">
+                        Your trusted FMCG store offering quality products from leading brands. Serving the community with excellence since 1995.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-colors duration-250">
+                            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-colors duration-250">
+                            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-colors duration-250">
+                            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.097.118.112.222.083.343-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-heading font-semibold text-text-primary mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="Pages/product_categories.html" class="text-text-secondary hover:text-primary transition-colors duration-250">Categories</a></li>
+                        <li><a href="Pages/brand_showcase.html" class="text-text-secondary hover:text-primary transition-colors duration-250">Brands</a></li>
+                        <li><a href="Pages/search_results.html" class="text-text-secondary hover:text-primary transition-colors duration-250">Search</a></li>
+                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-colors duration-250">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-heading font-semibold text-text-primary mb-4">Contact Info</h3>
+                    <ul class="space-y-2 text-text-secondary">
+                        <li class="flex items-center">
+                            <a href="https://maps.app.goo.gl/Rp8DduGBc9Su7sNK6?g_st=aw" target="_blank" rel="noopener noreferrer" class="flex items-center">
+                                <svg class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                                <span>
+                                    Shop no.2 Gangeshwar Compound,<br>
+                                    Vasta Devdi Rd,Tunki, Katargam,<br>
+                                    Surat, Gujarat 395004
+                                </span>
+                            </a>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            <a href="tel:+919825113432" class="ml-1 hover:underline"> +91 98251 13432</a>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            <a href="tel:+919825130201" class="ml-1 hover:underline"> +91 98251 30201</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-border-light mt-8 pt-8 text-center">
+                <p class="text-text-secondary">
+                    © 2025 Prince Chemist. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Zoom Modal -->
+    <div id="zoom-modal" class="modal-overlay hidden" onclick="closeImageZoom()">
+        <div class="modal-content max-w-5xl" onclick="event.stopPropagation()">
+            <div class="relative">
+                <button 
+                    onclick="closeImageZoom()"
+                    class="absolute top-4 right-4 bg-surface text-text-primary p-2 rounded-lg shadow-md hover:bg-background transition-colors duration-250 z-10"
+                    aria-label="Close zoom"
+                >
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+                <img 
+                    id="zoomed-image"
+                    src="" 
+                    alt="Zoomed product view"
+                    class="w-full h-auto rounded-xl"
+                >
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Image gallery functionality
+        function changeMainImage(imageSrc, button) {
+            const mainImage = document.getElementById('main-product-image');
+            mainImage.src = imageSrc;
+            
+            // Update active thumbnail
+            document.querySelectorAll('.thumbnail-btn').forEach(btn => {
+                btn.classList.remove('active', 'border-primary');
+                btn.classList.add('border-border-light');
+            });
+            button.classList.add('active', 'border-primary');
+            button.classList.remove('border-border-light');
+        }
+
+        // Image zoom functionality
+        function openImageZoom() {
+            const mainImage = document.getElementById('main-product-image');
+            const zoomedImage = document.getElementById('zoomed-image');
+            const modal = document.getElementById('zoom-modal');
+            
+            zoomedImage.src = mainImage.src;
+            zoomedImage.alt = mainImage.alt;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImageZoom() {
+            const modal = document.getElementById('zoom-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeImageZoom();
+            }
+        });
+
+        // Stagger animation on page load
+        window.addEventListener('load', function() {
+            const staggerItems = document.querySelectorAll('.stagger-item');
+            staggerItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                }, index * 150);
+            });
+        });
+
+        // Smooth scroll to sections
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
