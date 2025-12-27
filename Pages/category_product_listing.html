@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Product Listing - Prince Chemist</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <script type="module" async src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fprinceche1812back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.12"></script>
+  <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.2"></script>
+  </head>
+<body class="bg-background min-h-screen">
+    <!-- Header -->
+    <header class="bg-surface shadow-sm border-b border-border-light sticky top-0 z-sticky">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <svg class="h-10 w-10 text-primary" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="40" height="40" rx="8" fill="currentColor"/>
+                            <path d="M12 14h16v2H12v-2zm0 4h16v2H12v-2zm0 4h12v2H12v-2z" fill="white"/>
+                            <circle cx="30" cy="12" r="4" fill="#52C4A0"/>
+                            <path d="M28 12l1.5 1.5L32 11" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-xl font-heading font-semibold text-text-primary">Prince Chemist</h1>
+                        <p class="text-xs text-text-secondary">Your Trusted FMCG Store</p>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="product_categories.html" class="text-text-secondary hover:text-primary transition-colors duration-250">Categories</a>
+                    <a href="brand_showcase.html" class="text-text-secondary hover:text-primary transition-colors duration-250">Brands</a>
+                    <a href="search_results.html" class="text-text-secondary hover:text-primary transition-colors duration-250">Search</a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <button class="md:hidden p-2 rounded-lg hover:bg-background transition-colors duration-250" onclick="toggleMobileMenu()">
+                    <svg class="h-6 w-6 text-text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="md:hidden hidden border-t border-border-light pt-4 pb-3">
+                <div class="space-y-1">
+                    <a href="product_categories.html" class="block px-3 py-2 text-text-secondary hover:text-primary hover:bg-background rounded-lg transition-colors duration-250">Categories</a>
+                    <a href="brand_showcase.html" class="block px-3 py-2 text-text-secondary hover:text-primary hover:bg-background rounded-lg transition-colors duration-250">Brands</a>
+                    <a href="search_results.html" class="block px-3 py-2 text-text-secondary hover:text-primary hover:bg-background rounded-lg transition-colors duration-250">Search</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Breadcrumb Navigation -->
+        <nav class="flex items-center space-x-2 text-sm mb-6 stagger-item" aria-label="Breadcrumb">
+            <a href="product_categories.html" class="text-text-secondary hover:text-primary transition-colors duration-250">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                </svg>
+            </a>
+            <svg class="h-4 w-4 text-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+            <a href="product_categories.html" class="text-text-secondary hover:text-primary transition-colors duration-250">Categories</a>
+            <svg class="h-4 w-4 text-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+            <span class="text-text-primary font-medium" id="category-breadcrumb">Tooth Brushes</span>
+        </nav>
+
+        <!-- Page Header -->
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8 stagger-item">
+            <div>
+                <h1 class="text-4xl font-heading font-bold text-text-primary mb-2" id="category-title">Tooth Brushes</h1>
+                <p class="text-text-secondary" id="product-count">Showing 24 products</p>
+            </div>
+            
+            <!-- Mobile Filter Button -->
+            <button 
+                class="md:hidden mt-4 btn btn-outline flex items-center justify-center"
+                onclick="toggleMobileFilters()"
+                id="mobile-filter-btn"
+            >
+                <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
+                </svg>
+                Filters
+            </button>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Filter Sidebar -->
+            <aside 
+                class="lg:w-80 flex-shrink-0 stagger-item" 
+                id="filter-sidebar"
+            >
+                <div class="bg-surface rounded-xl border border-border-light p-6 sticky top-24">
+                    <!-- Mobile Filter Header -->
+                    <div class="flex items-center justify-between mb-6 lg:hidden">
+                        <h2 class="text-xl font-heading font-semibold text-text-primary">Filters</h2>
+                        <button 
+                            class="p-2 hover:bg-background rounded-lg transition-colors duration-250"
+                            onclick="toggleMobileFilters()"
+                        >
+                            <svg class="h-6 w-6 text-text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <h2 class="text-xl font-heading font-semibold text-text-primary mb-6 hidden lg:block">Filters</h2>
+
+                    <!-- Active Filters -->
+                    <div id="active-filters" class="mb-6 hidden">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-sm font-medium text-text-primary">Active Filters</span>
+                            <button 
+                                class="text-sm text-primary hover:text-primary-700 transition-colors duration-250"
+                                onclick="clearAllFilters()"
+                            >
+                                Clear All
+                            </button>
+                        </div>
+                        <div id="active-filter-tags" class="flex flex-wrap gap-2"></div>
+                    </div>
+
+                    <!-- Brand Filter -->
+                    <div class="mb-6 pb-6 border-b border-border-light">
+                        <button 
+                            class="flex items-center justify-between w-full text-left mb-4"
+                            onclick="toggleFilterSection('brand-filter')"
+                        >
+                            <h3 class="text-lg font-heading font-semibold text-text-primary">Brand</h3>
+                            <svg class="h-5 w-5 text-text-secondary transition-transform duration-250" id="brand-filter-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div id="brand-filter" class="space-y-3">
+                            <label class="flex items-center cursor-pointer group">
+                                <input type="checkbox" class="filter-checkbox" data-filter-type="brand" data-filter-value="Colgate" onchange="applyFilters()">
+                                <span class="ml-3 text-text-primary group-hover:text-primary transition-colors duration-250">Colgate</span>
+                                <span class="ml-auto text-sm text-text-secondary">(8)</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer group">
+                                <input type="checkbox" class="filter-checkbox" data-filter-type="brand" data-filter-value="Oral-B" onchange="applyFilters()">
+                                <span class="ml-3 text-text-primary group-hover:text-primary transition-colors duration-250">Oral-B</span>
+                                <span class="ml-auto text-sm text-text-secondary">(6)</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer group">
+                                <input type="checkbox" class="filter-checkbox" data-filter-type="brand" data-filter-value="Sensodyne" onchange="applyFilters()">
+                                <span class="ml-3 text-text-primary group-hover:text-primary transition-colors duration-250">Sensodyne</span>
+                                <span class="ml-auto text-sm text-text-secondary">(4)</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer group">
+                                <input type="checkbox" class="filter-checkbox" data-filter-type="brand" data-filter-value="Pepsodent" onchange="applyFilters()">
+                                <span class="ml-3 text-text-primary group-hover:text-primary transition-colors duration-250">Pepsodent</span>
+                                <span class="ml-auto text-sm text-text-secondary">(3)</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer group">
+                                <input type="checkbox" class="filter-checkbox" data-filter-type="brand" data-filter-value="Close-Up" onchange="applyFilters()">
+                                <span class="ml-3 text-text-primary group-hover:text-primary transition-colors duration-250">Close-Up</span>
+                                <span class="ml-auto text-sm text-text-secondary">(3)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Product Type Filter -->
+                    <div class="mb-6 pb-6 border-b border-border-light">
+                        <button 
+                            class="flex items-center justify-between w-full text-left mb-4"
+                            onclick="toggleFilterSection('type-filter')"
+                        >
+                            <h3 class="text-lg font-heading font-semibold text-text-primary">Product Type</h3>
+                            <svg class="h-5 w-5 text-text-secondary transition-transform duration-250" id="type-filter-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div id="type-filter" class="space-y-3">
+                            <label class="flex items-center cursor-pointer group">
+                                <input type="checkbox" class="filter-checkbox" data-filter-type="type" data-filter-value="Manual" onchange="applyFilters()">
+                                <span class="ml-3 text-text-primary group-hover:text-primary transition-colors duration-250">Manual</span>
+                                <span class="ml-auto text-sm text-text-secondary">(18)</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer group">
+                                <input type="checkbox" class="filter-checkbox" data-filter-type="type" data-filter-value="Electric" onchange="applyFilters()">
+                                <span class="ml-3 text-text-primary group-hover:text-primary transition-colors duration-250">Electric</span>
+                                <span class="ml-auto text-sm text-text-secondary">(6)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Availability Filter -->
+                    <div class="mb-6">
+                        <button 
+                            class="flex items-center justify-between w-full text-left mb-4"
+                            onclick="toggleFilterSection('availability-filter')"
+                        >
+                            <h3 class="text-lg font-heading font-semibold text-text-primary">Availability</h3>
+                            <svg class="h-5 w-5 text-text-secondary transition-transform duration-250" id="availability-filter-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div id="availability-filter" class="space-y-3">
+                            <label class="flex items-center cursor-pointer group">
+                                <input type="checkbox" class="filter-checkbox" data-filter-type="availability" data-filter-value="In Stock" onchange="applyFilters()">
+                                <span class="ml-3 text-text-primary group-hover:text-primary transition-colors duration-250">In Stock</span>
+                                <span class="ml-auto text-sm text-text-secondary">(20)</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer group">
+                                <input type="checkbox" class="filter-checkbox" data-filter-type="availability" data-filter-value="Low Stock" onchange="applyFilters()">
+                                <span class="ml-3 text-text-primary group-hover:text-primary transition-colors duration-250">Low Stock</span>
+                                <span class="ml-auto text-sm text-text-secondary">(4)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Brand Comparison -->
+                    <div class="mt-6 pt-6 border-t border-border-light">
+                        <button 
+                            class="w-full btn btn-outline"
+                            onclick="openBrandComparison()"
+                            id="compare-btn"
+                            disabled
+                        >
+                            <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                            Compare Brands
+                            <span id="compare-count" class="ml-2 hidden bg-primary text-primary-foreground px-2 py-0.5 rounded-full text-xs">0</span>
+                        </button>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Product Grid Section -->
+            <div class="flex-1 stagger-item">
+                <!-- Sort Controls -->
+                <div class="bg-surface rounded-xl border border-border-light p-4 mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div class="flex items-center space-x-2">
+                        <svg class="h-5 w-5 text-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12"/>
+                        </svg>
+                        <span class="text-sm font-medium text-text-primary">Sort by:</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <button 
+                            class="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-250 sort-btn active"
+                            data-sort="name"
+                            onclick="sortProducts('name')"
+                        >
+                            Name
+                        </button>
+                        <button 
+                            class="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-250 sort-btn"
+                            data-sort="brand"
+                            onclick="sortProducts('brand')"
+                        >
+                            Brand
+                        </button>
+                        <button 
+                            class="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-250 sort-btn"
+                            data-sort="code"
+                            onclick="sortProducts('code')"
+                        >
+                            Product Code
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Loading State -->
+                <div id="loading-state" class="hidden">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="skeleton h-96 rounded-xl"></div>
+                        <div class="skeleton h-96 rounded-xl"></div>
+                        <div class="skeleton h-96 rounded-xl"></div>
+                        <div class="skeleton h-96 rounded-xl"></div>
+                        <div class="skeleton h-96 rounded-xl"></div>
+                        <div class="skeleton h-96 rounded-xl"></div>
+                    </div>
+                </div>
+
+                <!-- Product Grid -->
+                <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Product Card 1 -->
+                    <div class="product-card card group cursor-pointer" data-brand="Colgate" data-type="Manual" data-availability="In Stock" data-name="Colgate 360 Charcoal" data-code="TB-COL-001" onclick="viewProduct('TB-COL-001')">
+                        <div class="relative overflow-hidden rounded-lg mb-4">
+                            <img 
+                                src="https://img.rocket.new/generatedImages/rocket_gen_img_113f3d6ff-1766761947145.png" 
+                                alt="Colgate 360 Charcoal toothbrush with soft bristles and ergonomic handle"
+                                class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
+                                loading="lazy"
+                                onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;"
+                            >
+                            <div class="absolute top-3 right-3 flex flex-col gap-2">
+                                <span class="bg-success text-success-foreground px-3 py-1 rounded-full text-xs font-medium">In Stock</span>
+                                <button 
+                                    class="compare-checkbox bg-surface p-2 rounded-full shadow-md hover:bg-primary hover:text-primary-foreground transition-all duration-250"
+                                    onclick="event.stopPropagation(); toggleCompare(this, 'Colgate')"
+                                    title="Add to comparison"
+                                >
+                                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-medium text-primary bg-primary-50 px-2 py-1 rounded">TB-COL-001</span>
+                                <span class="text-xs text-text-secondary">Colgate</span>
+                            </div>
+                            <h3 class="text-lg font-heading font-semibold text-text-primary group-hover:text-primary transition-colors duration-250">
+                                Colgate 360 Charcoal
+                            </h3>
+                            <p class="text-sm text-text-secondary truncate-2">
+                                Advanced charcoal bristles with 360° cleaning action for superior oral care
+                            </p>
+                            <button 
+                                class="w-full mt-4 btn btn-primary opacity-0 group-hover:opacity-100 transition-opacity duration-250"
+                                onclick="event.stopPropagation(); viewProduct('TB-COL-001')"
+                            >
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 2 -->
+                    <div class="product-card card group cursor-pointer" data-brand="Oral-B" data-type="Electric" data-availability="In Stock" data-name="Oral-B Pro 1000" data-code="TB-ORB-002" onclick="viewProduct('TB-ORB-002')">
+                        <div class="relative overflow-hidden rounded-lg mb-4">
+                            <img 
+                                src="https://img.rocket.new/generatedImages/rocket_gen_img_1f00d794f-1766853855524.png" 
+                                alt="Oral-B Pro 1000 electric toothbrush with rechargeable battery and pressure sensor"
+                                class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
+                                loading="lazy"
+                                onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;"
+                            >
+                            <div class="absolute top-3 right-3 flex flex-col gap-2">
+                                <span class="bg-success text-success-foreground px-3 py-1 rounded-full text-xs font-medium">In Stock</span>
+                                <button 
+                                    class="compare-checkbox bg-surface p-2 rounded-full shadow-md hover:bg-primary hover:text-primary-foreground transition-all duration-250"
+                                    onclick="event.stopPropagation(); toggleCompare(this, 'Oral-B')"
+                                    title="Add to comparison"
+                                >
+                                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-medium text-primary bg-primary-50 px-2 py-1 rounded">TB-ORB-002</span>
+                                <span class="text-xs text-text-secondary">Oral-B</span>
+                            </div>
+                            <h3 class="text-lg font-heading font-semibold text-text-primary group-hover:text-primary transition-colors duration-250">
+                                Oral-B Pro 1000
+                            </h3>
+                            <p class="text-sm text-text-secondary truncate-2">
+                                Rechargeable electric toothbrush with pressure sensor and timer for optimal cleaning
+                            </p>
+                            <button 
+                                class="w-full mt-4 btn btn-primary opacity-0 group-hover:opacity-100 transition-opacity duration-250"
+                                onclick="event.stopPropagation(); viewProduct('TB-ORB-002')"
+                            >
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 3 -->
+                    <div class="product-card card group cursor-pointer" data-brand="Sensodyne" data-type="Manual" data-availability="In Stock" data-name="Sensodyne Sensitive" data-code="TB-SEN-003" onclick="viewProduct('TB-SEN-003')">
+                        <div class="relative overflow-hidden rounded-lg mb-4">
+                            <img 
+                                src="https://img.rocket.new/generatedImages/rocket_gen_img_12460532d-1766853855906.png" 
+                                alt="Sensodyne Sensitive toothbrush with extra soft bristles for sensitive teeth"
+                                class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
+                                loading="lazy"
+                                onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;"
+                            >
+                            <div class="absolute top-3 right-3 flex flex-col gap-2">
+                                <span class="bg-success text-success-foreground px-3 py-1 rounded-full text-xs font-medium">In Stock</span>
+                                <button 
+                                    class="compare-checkbox bg-surface p-2 rounded-full shadow-md hover:bg-primary hover:text-primary-foreground transition-all duration-250"
+                                    onclick="event.stopPropagation(); toggleCompare(this, 'Sensodyne')"
+                                    title="Add to comparison"
+                                >
+                                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-medium text-primary bg-primary-50 px-2 py-1 rounded">TB-SEN-003</span>
+                                <span class="text-xs text-text-secondary">Sensodyne</span>
+                            </div>
+                            <h3 class="text-lg font-heading font-semibold text-text-primary group-hover:text-primary transition-colors duration-250">
+                                Sensodyne Sensitive
+                            </h3>
+                            <p class="text-sm text-text-secondary truncate-2">
+                                Extra soft bristles designed specifically for sensitive teeth and gums
+                            </p>
+                            <button 
+                                class="w-full mt-4 btn btn-primary opacity-0 group-hover:opacity-100 transition-opacity duration-250"
+                                onclick="event.stopPropagation(); viewProduct('TB-SEN-003')"
+                            >
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 4 -->
+                    <div class="product-card card group cursor-pointer" data-brand="Pepsodent" data-type="Manual" data-availability="Low Stock" data-name="Pepsodent Germ Check" data-code="TB-PEP-004" onclick="viewProduct('TB-PEP-004')">
+                        <div class="relative overflow-hidden rounded-lg mb-4">
+                            <img 
+                                src="https://images.unsplash.com/photo-1587679111814-5929199adcae" 
+                                alt="Pepsodent Germ Check toothbrush with antibacterial bristles"
+                                class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
+                                loading="lazy"
+                                onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;"
+                            >
+                            <div class="absolute top-3 right-3 flex flex-col gap-2">
+                                <span class="bg-warning text-warning-foreground px-3 py-1 rounded-full text-xs font-medium">Low Stock</span>
+                                <button 
+                                    class="compare-checkbox bg-surface p-2 rounded-full shadow-md hover:bg-primary hover:text-primary-foreground transition-all duration-250"
+                                    onclick="event.stopPropagation(); toggleCompare(this, 'Pepsodent')"
+                                    title="Add to comparison"
+                                >
+                                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-medium text-primary bg-primary-50 px-2 py-1 rounded">TB-PEP-004</span>
+                                <span class="text-xs text-text-secondary">Pepsodent</span>
+                            </div>
+                            <h3 class="text-lg font-heading font-semibold text-text-primary group-hover:text-primary transition-colors duration-250">
+                                Pepsodent Germ Check
+                            </h3>
+                            <p class="text-sm text-text-secondary truncate-2">
+                                Antibacterial bristles that help fight germs and maintain oral hygiene
+                            </p>
+                            <button 
+                                class="w-full mt-4 btn btn-primary opacity-0 group-hover:opacity-100 transition-opacity duration-250"
+                                onclick="event.stopPropagation(); viewProduct('TB-PEP-004')"
+                            >
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 5 -->
+                    <div class="product-card card group cursor-pointer" data-brand="Close-Up" data-type="Manual" data-availability="In Stock" data-name="Close-Up Deep Action" data-code="TB-CLU-005" onclick="viewProduct('TB-CLU-005')">
+                        <div class="relative overflow-hidden rounded-lg mb-4">
+                            <img 
+                                src="https://images.unsplash.com/photo-1695723260696-8b3d447a61f8" 
+                                alt="Close-Up Deep Action toothbrush with multi-level bristles"
+                                class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
+                                loading="lazy"
+                                onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;"
+                            >
+                            <div class="absolute top-3 right-3 flex flex-col gap-2">
+                                <span class="bg-success text-success-foreground px-3 py-1 rounded-full text-xs font-medium">In Stock</span>
+                                <button 
+                                    class="compare-checkbox bg-surface p-2 rounded-full shadow-md hover:bg-primary hover:text-primary-foreground transition-all duration-250"
+                                    onclick="event.stopPropagation(); toggleCompare(this, 'Close-Up')"
+                                    title="Add to comparison"
+                                >
+                                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-medium text-primary bg-primary-50 px-2 py-1 rounded">TB-CLU-005</span>
+                                <span class="text-xs text-text-secondary">Close-Up</span>
+                            </div>
+                            <h3 class="text-lg font-heading font-semibold text-text-primary group-hover:text-primary transition-colors duration-250">
+                                Close-Up Deep Action
+                            </h3>
+                            <p class="text-sm text-text-secondary truncate-2">
+                                Multi-level bristles for deep cleaning and fresh breath confidence
+                            </p>
+                            <button 
+                                class="w-full mt-4 btn btn-primary opacity-0 group-hover:opacity-100 transition-opacity duration-250"
+                                onclick="event.stopPropagation(); viewProduct('TB-CLU-005')"
+                            >
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 6 -->
+                    <div class="product-card card group cursor-pointer" data-brand="Colgate" data-type="Manual" data-availability="In Stock" data-name="Colgate Slim Soft" data-code="TB-COL-006" onclick="viewProduct('TB-COL-006')">
+                        <div class="relative overflow-hidden rounded-lg mb-4">
+                            <img 
+                                src="https://img.rocket.new/generatedImages/rocket_gen_img_18d2077c5-1766853855529.png" 
+                                alt="Colgate Slim Soft toothbrush with ultra-thin bristles"
+                                class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
+                                loading="lazy"
+                                onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;"
+                            >
+                            <div class="absolute top-3 right-3 flex flex-col gap-2">
+                                <span class="bg-success text-success-foreground px-3 py-1 rounded-full text-xs font-medium">In Stock</span>
+                                <button 
+                                    class="compare-checkbox bg-surface p-2 rounded-full shadow-md hover:bg-primary hover:text-primary-foreground transition-all duration-250"
+                                    onclick="event.stopPropagation(); toggleCompare(this, 'Colgate')"
+                                    title="Add to comparison"
+                                >
+                                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-medium text-primary bg-primary-50 px-2 py-1 rounded">TB-COL-006</span>
+                                <span class="text-xs text-text-secondary">Colgate</span>
+                            </div>
+                            <h3 class="text-lg font-heading font-semibold text-text-primary group-hover:text-primary transition-colors duration-250">
+                                Colgate Slim Soft
+                            </h3>
+                            <p class="text-sm text-text-secondary truncate-2">
+                                Ultra-thin bristles that reach deep between teeth for thorough cleaning
+                            </p>
+                            <button 
+                                class="w-full mt-4 btn btn-primary opacity-0 group-hover:opacity-100 transition-opacity duration-250"
+                                onclick="event.stopPropagation(); viewProduct('TB-COL-006')"
+                            >
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- No Results Message -->
+                <div id="no-results" class="hidden text-center py-16">
+                    <svg class="h-24 w-24 mx-auto text-text-secondary mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <h3 class="text-2xl font-heading font-semibold text-text-primary mb-2">No Products Found</h3>
+                    <p class="text-text-secondary mb-6">Try adjusting your filters to see more results</p>
+                    <button class="btn btn-primary" onclick="clearAllFilters()">Clear All Filters</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Quick View Modal -->
+    <div id="quick-view-modal" class="modal-overlay hidden" onclick="closeQuickView(event)">
+        <div class="modal-content max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+            <div class="p-6 border-b border-border-light">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-2xl font-heading font-semibold text-text-primary">Quick View</h2>
+                    <button 
+                        class="p-2 hover:bg-background rounded-lg transition-colors duration-250"
+                        onclick="closeQuickView()"
+                    >
+                        <svg class="h-6 w-6 text-text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="p-6" id="quick-view-content">
+                <!-- Content will be dynamically loaded -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Brand Comparison Modal -->
+    <div id="comparison-modal" class="modal-overlay hidden" onclick="closeComparison(event)">
+        <div class="modal-content max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+            <div class="p-6 border-b border-border-light">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-2xl font-heading font-semibold text-text-primary">Brand Comparison</h2>
+                    <button 
+                        class="p-2 hover:bg-background rounded-lg transition-colors duration-250"
+                        onclick="closeComparison()"
+                    >
+                        <svg class="h-6 w-6 text-text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="p-6" id="comparison-content">
+                <div class="text-center py-8">
+                    <p class="text-text-secondary">Select brands from the product list to compare</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-surface border-t border-border-light mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-8 w-8 text-primary" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="40" height="40" rx="8" fill="currentColor"/>
+                            <path d="M12 14h16v2H12v-2zm0 4h16v2H12v-2zm0 4h12v2H12v-2z" fill="white"/>
+                            <circle cx="30" cy="12" r="4" fill="#52C4A0"/>
+                            <path d="M28 12l1.5 1.5L32 11" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="ml-2 text-xl font-heading font-semibold text-text-primary">Prince Chemist</span>
+                    </div>
+                    <p class="text-text-secondary mb-4 max-w-md">
+                        Your trusted FMCG store offering quality products from leading brands. Serving the community with excellence since 1995.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-colors duration-250">
+                            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-colors duration-250">
+                            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-colors duration-250">
+                            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.097.118.112.222.083.343-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-heading font-semibold text-text-primary mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="product_categories.html" class="text-text-secondary hover:text-primary transition-colors duration-250">Categories</a></li>
+                        <li><a href="brand_showcase.html" class="text-text-secondary hover:text-primary transition-colors duration-250">Brands</a></li>
+                        <li><a href="search_results.html" class="text-text-secondary hover:text-primary transition-colors duration-250">Search</a></li>
+                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-colors duration-250">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-heading font-semibold text-text-primary mb-4">Contact Info</h3>
+                    <ul class="space-y-2 text-text-secondary">
+                        <li class="flex items-center">
+                            <svg class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            123 Main Street, City
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            +91 98765 43210
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            info@princechemist.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-border-light mt-8 pt-8 text-center">
+                <p class="text-text-secondary">
+                    © 2025 Prince Chemist. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Mobile filter toggle
+        function toggleMobileFilters() {
+            const sidebar = document.getElementById('filter-sidebar');
+            sidebar.classList.toggle('fixed');
+            sidebar.classList.toggle('inset-0');
+            sidebar.classList.toggle('z-modal');
+            sidebar.classList.toggle('bg-background');
+            sidebar.classList.toggle('overflow-y-auto');
+            sidebar.classList.toggle('p-4');
+            
+            if (sidebar.classList.contains('fixed')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Toggle filter sections
+        function toggleFilterSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const icon = document.getElementById(sectionId + '-icon');
+            
+            section.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // Comparison functionality
+        let comparisonBrands = new Set();
+
+        function toggleCompare(button, brand) {
+            if (comparisonBrands.has(brand)) {
+                comparisonBrands.delete(brand);
+                button.classList.remove('bg-primary', 'text-primary-foreground');
+            } else {
+                if (comparisonBrands.size >= 3) {
+                    alert('You can compare up to 3 brands at a time');
+                    return;
+                }
+                comparisonBrands.add(brand);
+                button.classList.add('bg-primary', 'text-primary-foreground');
+            }
+            
+            updateCompareButton();
+        }
+
+        function updateCompareButton() {
+            const compareBtn = document.getElementById('compare-btn');
+            const compareCount = document.getElementById('compare-count');
+            
+            if (comparisonBrands.size >= 2) {
+                compareBtn.disabled = false;
+                compareCount.classList.remove('hidden');
+                compareCount.textContent = comparisonBrands.size;
+            } else {
+                compareBtn.disabled = true;
+                compareCount.classList.add('hidden');
+            }
+        }
+
+        function openBrandComparison() {
+            if (comparisonBrands.size < 2) return;
+            
+            const modal = document.getElementById('comparison-modal');
+            const content = document.getElementById('comparison-content');
+            
+            let html = '<div class="grid grid-cols-1 md:grid-cols-' + comparisonBrands.size + ' gap-6">';
+            
+            comparisonBrands.forEach(brand => {
+                html += `
+                    <div class="card">
+                        <h3 class="text-xl font-heading font-semibold text-text-primary mb-4">${brand}</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Products:</span>
+                                <span class="font-medium text-text-primary">8</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Types:</span>
+                                <span class="font-medium text-text-primary">Manual, Electric</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Availability:</span>
+                                <span class="font-medium text-success">In Stock</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            html += '</div>';
+            content.innerHTML = html;
+            modal.classList.remove('hidden');
+        }
+
+        function closeComparison(event) {
+            if (event && event.target !== event.currentTarget) return;
+            document.getElementById('comparison-modal').classList.add('hidden');
+        }
+
+        // Filter functionality
+        function applyFilters() {
+            const loadingState = document.getElementById('loading-state');
+            const productGrid = document.getElementById('product-grid');
+            const noResults = document.getElementById('no-results');
+            
+            // Show loading
+            loadingState.classList.remove('hidden');
+            productGrid.classList.add('hidden');
+            noResults.classList.add('hidden');
+            
+            setTimeout(() => {
+                const checkboxes = document.querySelectorAll('.filter-checkbox:checked');
+                const filters = {
+                    brand: [],
+                    type: [],
+                    availability: []
+                };
+                
+                checkboxes.forEach(checkbox => {
+                    const filterType = checkbox.dataset.filterType;
+                    const filterValue = checkbox.dataset.filterValue;
+                    filters[filterType].push(filterValue);
+                });
+                
+                const products = document.querySelectorAll('.product-card');
+                let visibleCount = 0;
+                
+                products.forEach(product => {
+                    const brand = product.dataset.brand;
+                    const type = product.dataset.type;
+                    const availability = product.dataset.availability;
+                    
+                    const brandMatch = filters.brand.length === 0 || filters.brand.includes(brand);
+                    const typeMatch = filters.type.length === 0 || filters.type.includes(type);
+                    const availabilityMatch = filters.availability.length === 0 || filters.availability.includes(availability);
+                    
+                    if (brandMatch && typeMatch && availabilityMatch) {
+                        product.classList.remove('hidden');
+                        visibleCount++;
+                    } else {
+                        product.classList.add('hidden');
+                    }
+                });
+                
+                // Update product count
+                document.getElementById('product-count').textContent = `Showing ${visibleCount} products`;
+                
+                // Update active filters
+                updateActiveFilters(filters);
+                
+                // Hide loading and show results
+                loadingState.classList.add('hidden');
+                if (visibleCount === 0) {
+                    noResults.classList.remove('hidden');
+                } else {
+                    productGrid.classList.remove('hidden');
+                }
+            }, 500);
+        }
+
+        function updateActiveFilters(filters) {
+            const activeFiltersDiv = document.getElementById('active-filters');
+            const activeFilterTags = document.getElementById('active-filter-tags');
+            
+            let hasFilters = false;
+            let html = '';
+            
+            Object.keys(filters).forEach(filterType => {
+                filters[filterType].forEach(value => {
+                    hasFilters = true;
+                    html += `
+                        <span class="inline-flex items-center bg-primary-50 text-primary px-3 py-1 rounded-full text-sm">
+                            ${value}
+                            <button class="ml-2 hover:text-primary-700" onclick="removeFilter('${filterType}', '${value}')">
+                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                </svg>
+                            </button>
+                        </span>
+                    `;
+                });
+            });
+            
+            if (hasFilters) {
+                activeFiltersDiv.classList.remove('hidden');
+                activeFilterTags.innerHTML = html;
+            } else {
+                activeFiltersDiv.classList.add('hidden');
+            }
+        }
+
+        function removeFilter(filterType, value) {
+            const checkboxes = document.querySelectorAll(`.filter-checkbox[data-filter-type="${filterType}"][data-filter-value="${value}"]`);
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            applyFilters();
+        }
+
+        function clearAllFilters() {
+            const checkboxes = document.querySelectorAll('.filter-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            applyFilters();
+        }
+
+        // Sort functionality
+        function sortProducts(sortBy) {
+            const buttons = document.querySelectorAll('.sort-btn');
+            buttons.forEach(btn => {
+                if (btn.dataset.sort === sortBy) {
+                    btn.classList.add('active', 'bg-primary', 'text-primary-foreground');
+                } else {
+                    btn.classList.remove('active', 'bg-primary', 'text-primary-foreground');
+                    btn.classList.add('text-text-secondary', 'hover:bg-background');
+                }
+            });
+            
+            const productGrid = document.getElementById('product-grid');
+            const products = Array.from(document.querySelectorAll('.product-card:not(.hidden)'));
+            
+            products.sort((a, b) => {
+                const aValue = a.dataset[sortBy].toLowerCase();
+                const bValue = b.dataset[sortBy].toLowerCase();
+                return aValue.localeCompare(bValue);
+            });
+            
+            products.forEach(product => {
+                productGrid.appendChild(product);
+            });
+        }
+
+        // Product view
+        function viewProduct(productCode) {
+            window.location.href = `product_details.html?code=${productCode}`;
+        }
+
+        // Quick view modal
+        function closeQuickView(event) {
+            if (event && event.target !== event.currentTarget) return;
+            document.getElementById('quick-view-modal').classList.add('hidden');
+        }
+
+        // Initialize sort buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            const sortButtons = document.querySelectorAll('.sort-btn');
+            sortButtons.forEach(btn => {
+                if (!btn.classList.contains('active')) {
+                    btn.classList.add('text-text-secondary', 'hover:bg-background');
+                }
+            });
+        });
+
+        // Stagger animation on page load
+        window.addEventListener('load', function() {
+            const staggerItems = document.querySelectorAll('.stagger-item');
+            staggerItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                }, index * 150);
+            });
+        });
+
+        // Get category from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const category = urlParams.get('category');
+        if (category) {
+            const categoryTitle = category.split('-').map(word => 
+                word.charAt(0).toUpperCase() + word.slice(1)
+            ).join(' ');
+            document.getElementById('category-title').textContent = categoryTitle;
+            document.getElementById('category-breadcrumb').textContent = categoryTitle;
+        }
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
